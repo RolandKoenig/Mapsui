@@ -21,6 +21,7 @@ using Mapsui.Widgets.Zoom;
 using XamlMedia = System.Windows.Media;
 using Mapsui.UI;
 using Mapsui.Rendering.Xaml.XamlStyles;
+using System.Runtime.InteropServices;
 
 namespace Mapsui.Rendering.Xaml
 {
@@ -133,7 +134,10 @@ namespace Mapsui.Rendering.Xaml
         private static void RunMethodOnStaThread(ThreadStart operation)
         {
             var thread = new Thread(operation);
-            thread.SetApartmentState(ApartmentState.STA);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                thread.SetApartmentState(ApartmentState.STA);
+            }
             thread.Priority = ThreadPriority.Lowest;
             thread.Start();
             thread.Join();
