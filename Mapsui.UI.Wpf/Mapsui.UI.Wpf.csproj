@@ -19,7 +19,6 @@
   <ItemGroup>
     <PackageReference Include="BruTile" Version="3.1.2" />
     <PackageReference Include="SkiaSharp" Version="2.80.2" />
-    <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
     <PackageReference Include="SkiaSharp.Views.WPF" Version="2.80.2" />
   </ItemGroup>
 
